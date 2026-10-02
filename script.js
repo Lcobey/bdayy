@@ -3,8 +3,8 @@
    ===================================================================== */
 const birthdayConfig = {
   name: "Baby",                 // her name (shows on screens 2 and 5)
-  fromName: "Lorenzo",       // your name, already set
-   
+  fromName: "Baby mo",              // your name (shows in the signature)
+
   birthdayMessage: "I hope today reminds you how loved you are.",
 
   // Photos: replace the files in the images/ folder (keep the names).
@@ -19,7 +19,7 @@ const birthdayConfig = {
   ],
 
   // The letter. Each new line is a new line in the letter; an empty line is a gap.
-  letter: `Happy birthday, baby.
+  letter: `Happy birthday, love.
 
 I wanted to make something for you instead of just giving you something I bought.
 
@@ -32,9 +32,9 @@ I hope you know how special you are to me.
 Happy birthday. ❤️`,
 
   oneLastThing: "One last thing...",
-  finalMessage: "I Love You ❤️",   // {name} is replaced by her name
-   signature: "Made with love by {from}.",
-   
+  finalMessage: "I love you, {name} ❤️",   // {name} is replaced by her name
+  signature: "Always, {from}.",      // {from} is replaced by your name
+
   letterSpeedMs: 140                           // time per word in the letter (lower = faster)
 };
 /* ===================== END OF EDITABLE SECTION ===================== */
