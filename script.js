@@ -3,7 +3,8 @@
    ===================================================================== */
 const birthdayConfig = {
   name: "Baby",                 // her name (shows on screens 2 and 5)
-
+  fromName: "Lorenzo",       // your name, already set
+   
   birthdayMessage: "I hope today reminds you how loved you are.",
 
   // Photos: replace the files in the images/ folder (keep the names).
@@ -32,7 +33,8 @@ Happy birthday. ❤️`,
 
   oneLastThing: "One last thing...",
   finalMessage: "I Love You ❤️",   // {name} is replaced by her name
-
+   signature: "Made with love by {from}.",
+   
   letterSpeedMs: 140                           // time per word in the letter (lower = faster)
 };
 /* ===================== END OF EDITABLE SECTION ===================== */
