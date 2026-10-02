@@ -19,7 +19,7 @@ const birthdayConfig = {
   ],
 
   // The letter. Each new line is a new line in the letter; an empty line is a gap.
-  letter: `Happy birthday, love.
+  letter: `Happy birthday, baby ko.
 
 I wanted to make something for you instead of just giving you something I bought.
 
