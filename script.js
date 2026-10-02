@@ -3,7 +3,6 @@
    ===================================================================== */
 const birthdayConfig = {
   name: "Baby",                 // her name (shows on screens 2 and 5)
-  fromName: "Baby mo",              // your name (shows in the signature)
 
   birthdayMessage: "I hope today reminds you how loved you are.",
 
@@ -18,7 +17,7 @@ const birthdayConfig = {
   ],
 
   // The letter. Each new line is a new line in the letter; an empty line is a gap.
-  letter: `Happy birthday, love.
+  letter: `Happy birthday, baby.
 
 I wanted to make something for you instead of just giving you something I bought.
 
@@ -31,8 +30,7 @@ I hope you know how special you are to me.
 Happy birthday. ❤️`,
 
   oneLastThing: "One last thing...",
-  finalMessage: "Happy Birthday, {name} ❤️",   // {name} is replaced by her name
-  signature: "Made with love by {from}.",      // {from} is replaced by your name
+  finalMessage: "I Love You ❤️",   // {name} is replaced by her name
 
   letterSpeedMs: 140                           // time per word in the letter (lower = faster)
 };
