@@ -11,7 +11,6 @@ const birthdayConfig = {
   // Photos: replace the files in the images/ folder (keep the names).
   // Add or remove lines if you want more or fewer photos.
   photos: [
-    { src: "images/photo1.jpg", caption: "One of my favorite pic of you." },
     { src: "images/photo2.jpg", caption: "One of our pics together na I first storied sa IG hehe." },
     { src: "images/photo3.jpg", caption: "First date natin together sa Cubao at Oldmoon." },
     { src: "images/photo4.jpg", caption: "2nd date natin para mag eat ng hashtag samngyup!" },
