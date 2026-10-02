@@ -2,8 +2,8 @@
    EDIT HERE: everything you need to personalise is in this block
    ===================================================================== */
 const birthdayConfig = {
-  name: "HER NAME",                 // her name (shows on screens 2 and 5)
-  fromName: "Lorenzo",              // your name (shows in the signature)
+  name: "Baby",                 // her name (shows on screens 2 and 5)
+  fromName: "Baby mo",              // your name (shows in the signature)
 
   birthdayMessage: "I hope today reminds you how loved you are.",
 
