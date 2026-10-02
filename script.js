@@ -47,6 +47,7 @@ Happy birthday. ❤️`,
   const fill = (t) => t.replace("{name}", C.name).replace("{from}", C.fromName);
   const screens = $$(".screen"), audio = $("#bgm"), musicBtn = $("#musicBtn");
   let timers = [], typing = null;
+  document.body.dataset.s = 0;
   const later = (fn, ms) => timers.push(setTimeout(fn, ms));
   const clearAll = () => { timers.forEach(clearTimeout); timers = []; clearInterval(typing); };
 
@@ -72,7 +73,12 @@ Happy birthday. ❤️`,
     s.style.cssText = `left:${rnd(0, 100)}%;top:${rnd(0, 100)}%;--z:${rnd(2, 5)}px;--t:${rnd(2.5, 5)}s;--dl:${rnd(0, 4)}s`;
     $("#stars").appendChild(s);
   }
-  const BC = ["#f4a6b8", "#f7c6cf", "#e98aa3", "#fbd9bd", "#c9b6e4", "#ffd7e2", "#f2b5a0"];
+  for (let i = 0; i < 16; i++) {   // slow golden bokeh, drifts up behind everything
+    const k = document.createElement("i"); k.className = "bk";
+    k.style.cssText = `--x:${rnd(0, 96)}%;--z:${rnd(40, 130).toFixed(0)}px;--t:${rnd(16, 30).toFixed(1)}s;--dl:${rnd(-20, 0).toFixed(1)}s;--dx:${rnd(-60, 60).toFixed(0)}px;--o:${rnd(.25, .6).toFixed(2)}`;
+    $("#bokeh").appendChild(k);
+  }
+  const BC = ["#f2a7b8", "#f7c4c9", "#e4829c", "#f9d3b4", "#cdb4e0", "#fbd9e3", "#f0b9a4"];
   for (let i = 0; i < 9; i++) {
     const b = document.createElement("i"); b.className = "bl";
     b.style.cssText = `--x:${rnd(2, 90)}%;--w:${rnd(46, 74)}px;--c:${BC[i % BC.length]};--d:${rnd(9, 15)}s;--dl:${rnd(0.2, 6)}s`;
@@ -84,7 +90,8 @@ Happy birthday. ❤️`,
     screens.forEach((s, i) => { s.classList.toggle("active", i === n); s.setAttribute("aria-hidden", i !== n); });
     screens[n].scrollTop = 0;
     clearAll();
-    document.body.classList.toggle("night", n === 4);
+    document.body.classList.toggle("is-night", n === 4);
+    document.body.dataset.s = n;
     if (n !== 4) $("#s5").classList.remove("dusk");
     if (n === 3) startLetter();
     if (n === 4) startGarden();
@@ -105,7 +112,7 @@ Happy birthday. ❤️`,
 
   /* ---------- particles (petals + hearts) ---------- */
   const cv = $("#fx"), cx = cv.getContext("2d");
-  const COLORS = ["#f4b6c2", "#f9d3d8", "#e79aac", "#fbe3d6", "#ffffff", "#f1c9a8"];
+  const COLORS = ["#f3b3c1", "#f8d2d8", "#e58aa3", "#fbe0cf", "#ffffff", "#efc58f"];
   let W = 0, H = 0, parts = [], running = true;
   function resize() {
     const d = Math.min(window.devicePixelRatio || 1, 2);
@@ -114,7 +121,7 @@ Happy birthday. ❤️`,
   addEventListener("resize", resize); resize();
   function ambient() {
     return { x: rnd(0, W), y: -20, vx: rnd(-.25, .25), vy: rnd(.35, .9), s: rnd(5, 10), r: rnd(0, 6.28), vr: rnd(-.02, .02),
-      heart: Math.random() < .3, c: COLORS[(Math.random() * COLORS.length) | 0], a: rnd(.35, .75), sw: rnd(0, 6.28) };
+      heart: Math.random() < .12, c: COLORS[(Math.random() * COLORS.length) | 0], a: rnd(.35, .75), sw: rnd(0, 6.28) };
   }
   function burst(x, y, n) {
     for (let i = 0; i < n; i++) {
@@ -128,6 +135,11 @@ Happy birthday. ❤️`,
     cx.bezierCurveTo(-s, -s * .4, -s * .5, -s * 1.1, 0, -s * .5);
     cx.bezierCurveTo(s * .5, -s * 1.1, s, -s * .4, 0, s * .35); cx.fill();
   }
+  function drawPetal(s) {
+    cx.beginPath(); cx.moveTo(0, -s * 1.1);
+    cx.bezierCurveTo(s * .95, -s * .7, s * .8, s * .6, 0, s * .95);
+    cx.bezierCurveTo(-s * .8, s * .6, -s * .95, -s * .7, 0, -s * 1.1); cx.fill();
+  }
   function frame() {
     if (!running) return;
     cx.clearRect(0, 0, W, H);
@@ -139,7 +151,7 @@ Happy birthday. ❤️`,
       else { p.sw += .02; p.x += Math.sin(p.sw) * .4; }
       p.x += p.vx; p.y += p.vy; p.r += p.vr;
       cx.save(); cx.translate(p.x, p.y); cx.rotate(p.r); cx.globalAlpha = p.a; cx.fillStyle = p.c;
-      if (p.heart) drawHeart(p.s * .8); else { cx.beginPath(); cx.ellipse(0, 0, p.s * .6, p.s, 0, 0, 6.28); cx.fill(); }
+      if (p.heart) drawHeart(p.s * .8); else drawPetal(p.s * .85);
       cx.restore();
     }
     requestAnimationFrame(frame);

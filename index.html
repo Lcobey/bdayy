@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#fff6ee">
+<meta name="theme-color" content="#fcd9c6">
 <title>For You ♡</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="flowers.css">
 </head>
 <body>
+<div id="bokeh" aria-hidden="true"></div>
 <div id="stars" aria-hidden="true"></div>
 <canvas id="fx" aria-hidden="true"></canvas>
 <audio id="bgm" src="music/song.mp3" loop preload="none"></audio>
@@ -21,8 +22,8 @@
   <section class="screen active" id="s1">
     <div class="wrap">
       <h1 class="script big">I made something for you...</h1>
-      <div class="gift" id="gift" aria-hidden="true"><div class="lid"><i class="bow"></i></div><div class="base"></div></div>
-      <button class="btn" id="openBtn">Open Your Gift ♡</button>
+      <div class="gift" id="gift" aria-hidden="true"><i class="gs"></i><div class="lid"><i class="bow"></i></div><div class="base"></div></div>
+      <button class="btn shine" id="openBtn">Open Your Gift ♡</button>
     </div>
   </section>
 
@@ -32,7 +33,7 @@
       <h1>Happy Birthday,<br><span class="script name" data-name></span> ♡</h1>
       <figure class="hero rv" style="--i:2"><img id="heroImg" alt="A photo of us"></figure>
       <p class="rv" id="bdayMsg" style="--i:3"></p>
-      <div class="rv" style="--i:4"><button class="btn" data-go="2">There's more →</button></div>
+      <div class="rv" style="--i:4"><button class="btn" data-go="2">There's more</button></div>
     </div>
   </section>
 
@@ -41,7 +42,7 @@
       <h2 class="script big rv" style="--i:0">Our memories</h2>
       <div class="board" id="board"></div>
       <p class="hint rv" style="--i:4">Tap a photo to open it</p>
-      <div class="rv" style="--i:5"><button class="btn" data-go="3">Continue →</button></div>
+      <div class="rv" style="--i:5"><button class="btn" data-go="3">Continue</button></div>
     </div>
   </section>
 
@@ -51,7 +52,7 @@
         <button class="env" id="env" aria-label="Open the letter"><i class="flap"></i><i class="seal">♥</i></button>
         <article class="letter" id="letter" title="Tap to show the whole letter"><div id="letterText"></div></article>
       </div>
-      <div class="next" id="letterNext"><button class="btn" data-go="4">Continue →</button></div>
+      <div class="next" id="letterNext"><button class="btn" data-go="4">Continue</button></div>
     </div>
   </section>
 
@@ -494,7 +495,7 @@
 </main>
 
 <div class="lb" id="lb" hidden>
-  <figure class="polaroid big-p" id="lbCard"><img id="lbImg" alt=""><figcaption class="script" id="lbCap"></figcaption></figure>
+  <figure class="polaroid big-p" id="lbCard"><img id="lbImg" alt=""><figcaption class="hand" id="lbCap"></figcaption></figure>
   <button class="nav prev" id="lbPrev" aria-label="Previous photo">‹</button>
   <button class="nav next-b" id="lbNext" aria-label="Next photo">›</button>
   <button class="close" id="lbClose" aria-label="Close photo">✕</button>
