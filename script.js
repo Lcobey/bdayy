@@ -4,6 +4,7 @@
 const birthdayConfig = {
   name: "Baby",                 // her name (shows on screens 2 and 5)
   fromName: "Baby mo",              // your name (shows in the signature)
+  heroPhoto: "images/hero.jpg",
 
   birthdayMessage: "I hope today reminds you how loved you are.",
 
@@ -66,7 +67,7 @@ Happy birthday. ❤️`,
     img.onerror = () => img.classList.add("missing");
     img.alt = alt; img.src = src;
   }
-  safeImg($("#heroImg"), C.photos[0].src, "A photo of us");
+  safeImg($("#heroImg"), C.heroPhoto || C.photos[0].src, "A photo of us");
 
   /* ---------- twinkling stars + balloons ---------- */
   for (let i = 0; i < 28; i++) {
